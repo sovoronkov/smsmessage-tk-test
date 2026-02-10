@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "buildSummaryApi",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Sms.Api/Sms.Api.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "docker-build",
+            "type": "shell",
+            "command": "docker build -t getway:1.0 .",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "docker-run",
+            "type": "shell",
+            "command": "docker run -d -p 8280:80 myproject",
+            "dependsOn": "docker-build",
+            "problemMatcher": []
+        }
+    ]
+}

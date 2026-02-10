@@ -1,0 +1,10 @@
+﻿namespace Application.Dto;
+
+public class ApiResponse<T>
+
+{
+    public bool Success { get; set; }
+    public T Data { get; set; }
+    public string Error { get; set; }
+    public string ServerUsed { get; set; }
+}
